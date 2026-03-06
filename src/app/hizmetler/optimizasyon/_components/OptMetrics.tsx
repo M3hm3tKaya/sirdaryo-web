@@ -9,10 +9,10 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 gsap.registerPlugin(ScrollTrigger);
 
 const metrics = [
-  { value: 35, suffix: "%", label: "Verimlilik Artışı", angle: 126 },
-  { value: 25, suffix: "%", label: "Maliyet Azalması", angle: 90 },
+  { value: 35, suffix: "%", label: "Ortalama Verimlilik Artışı", angle: 126 },
+  { value: 25, suffix: "%", label: "Maliyet Tasarrufu", angle: 90 },
   { value: 50, suffix: "+", label: "Optimize Edilen Süreç", angle: 144 },
-  { value: 3, suffix: "", label: "Ay Sonuç Süresi", angle: 54 },
+  { value: 3, suffix: " Ay", label: "Ortalama Sonuç Süresi", angle: 54 },
 ];
 
 function Gauge({ metric, index }: { metric: (typeof metrics)[0]; index: number }) {
