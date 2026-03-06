@@ -1,0 +1,50 @@
+import {
+  Bot,
+  GitBranch,
+  TrendingUp,
+  LayoutDashboard,
+  Code2,
+  Workflow,
+  Zap,
+  BarChart3,
+  Shield,
+  Settings,
+  Cpu,
+  Database,
+  LineChart,
+  Clock,
+  Target,
+  Layers,
+  Monitor,
+  Smartphone,
+  Globe,
+  Lock,
+  type LucideIcon,
+} from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  Bot,
+  GitBranch,
+  TrendingUp,
+  LayoutDashboard,
+  Code2,
+  Workflow,
+  Zap,
+  BarChart3,
+  Shield,
+  Settings,
+  Cpu,
+  Database,
+  LineChart,
+  Clock,
+  Target,
+  Layers,
+  Monitor,
+  Smartphone,
+  Globe,
+  Lock,
+};
+
+export function getIcon(name: string): LucideIcon {
+  return iconMap[name] || Code2;
+}
