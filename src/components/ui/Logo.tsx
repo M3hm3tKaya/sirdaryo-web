@@ -21,7 +21,7 @@ export function Logo({
       width={140}
       height={46}
       priority
-      className={`h-auto w-[280px] sm:w-[340px] ${variant === "light" ? "invert" : ""} ${className}`}
+      className={`h-auto w-[196px] sm:w-[238px] ${variant === "light" ? "invert" : ""} ${className}`}
     />
   );
 

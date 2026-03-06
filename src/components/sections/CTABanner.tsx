@@ -1,16 +1,22 @@
 "use client";
 
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { TextReveal } from "@/components/animations/TextReveal";
+import { useCursor } from "@/lib/CursorContext";
 
 export function CTABanner() {
-  return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-coral to-brand-amber" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.3))]" />
+  const { setColor } = useCursor();
 
+  return (
+    <section
+      className="relative overflow-hidden py-24 lg:py-32"
+      style={{
+        background: "linear-gradient(135deg, #FF3B30 0%, #FF6B3D 50%, #F59E0B 100%)",
+      }}
+      onMouseEnter={() => setColor("#FFFFFF")}
+    >
       <Container className="relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <TextReveal
@@ -25,14 +31,12 @@ export function CTABanner() {
             </p>
           </ScrollReveal>
           <ScrollReveal animation="scale" delay={0.4}>
-            <Button
+            <Link
               href="/iletisim"
-              variant="secondary"
-              size="lg"
-              className="mt-8"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-lg font-semibold text-brand-black transition-all duration-300 hover:bg-brand-black hover:text-white hover:shadow-[0_0_40px_rgba(0,0,0,0.3)]"
             >
               Bize Ulaşın
-            </Button>
+            </Link>
           </ScrollReveal>
         </div>
       </Container>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/layout/LenisProvider";
+import { CursorProvider } from "@/lib/CursorContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/animations/CustomCursor";
@@ -33,6 +34,9 @@ export const metadata: Metadata = {
   description:
     "Sirdaryo Danışmanlık ve Bilişim Hizmetleri - RPA, BPMN, Optimizasyon, Yönetim Paneli ve Özel Yazılım çözümleri ile işletmenizi dijitalleştirin.",
   metadataBase: new URL("https://sirdaryo.com"),
+  icons: {
+    icon: "/sirdaryo-S.svg",
+  },
   openGraph: {
     type: "website",
     locale: "tr_TR",
@@ -52,12 +56,14 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-sans antialiased">
-        <LenisProvider>
-          <CustomCursor />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </LenisProvider>
+        <CursorProvider>
+          <LenisProvider>
+            <CustomCursor />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </LenisProvider>
+        </CursorProvider>
       </body>
     </html>
   );

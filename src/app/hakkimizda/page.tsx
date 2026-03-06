@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GlowCard } from "@/components/ui/GlowCard";
+import { PageCursorColor } from "@/components/animations/PageCursorColor";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { TextReveal } from "@/components/animations/TextReveal";
 import { Counter } from "@/components/animations/Counter";
@@ -50,7 +51,7 @@ const metrics = [
 
 export default function HakkimizdaPage() {
   return (
-    <>
+    <PageCursorColor color="#FF3B30">
       <section className="bg-brand-black pt-32 pb-20 lg:pt-40 lg:pb-28">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
@@ -166,6 +167,6 @@ export default function HakkimizdaPage() {
           </div>
         </Container>
       </section>
-    </>
+    </PageCursorColor>
   );
 }

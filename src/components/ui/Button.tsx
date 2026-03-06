@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type ReactNode } from "react";
+import { type CSSProperties, type ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
@@ -12,6 +12,7 @@ interface ButtonProps {
   type?: "button" | "submit";
   disabled?: boolean;
   className?: string;
+  style?: CSSProperties;
 }
 
 const variants = {
@@ -38,12 +39,13 @@ export function Button({
   type = "button",
   disabled = false,
   className = "",
+  style,
 }: ButtonProps) {
   const classes = `inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 ease-out ${variants[variant]} ${sizes[size]} ${disabled ? "opacity-50 pointer-events-none" : ""} ${className}`;
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} style={style}>
         {children}
       </Link>
     );
@@ -55,6 +57,7 @@ export function Button({
       onClick={onClick}
       disabled={disabled}
       className={classes}
+      style={style}
     >
       {children}
     </button>

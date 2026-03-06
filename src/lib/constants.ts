@@ -3,7 +3,7 @@ export const COMPANY = {
   shortName: "Sirdaryo",
   address: "Barbaros Mh. Mustafa Pehlivan Sk. 1/2, 34662 Üsküdar/İstanbul",
   email: "bilgi@sirdaryo.com",
-  phone: "+90 212 000 00 00",
+  phone: "+90 536 451 66 33",
   workingHours: "Pazartesi–Cuma, 08:00–18:00",
   supportHours: "7/24 iletişim desteği",
   mapCoords: { lat: 41.0255, lng: 29.0155 },
@@ -32,7 +32,6 @@ export const NAV_LINKS: NavLink[] = [
   },
   { label: "Hakkımızda", href: "/hakkimizda" },
   { label: "Blog", href: "/blog" },
-  { label: "İletişim", href: "/iletisim" },
 ];
 
 export const ACCENT_COLORS = {

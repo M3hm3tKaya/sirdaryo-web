@@ -122,7 +122,7 @@ export function Header() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="relative z-50 lg:hidden"
+          className="relative z-[70] lg:hidden"
           aria-label="Menü"
         >
           {mobileOpen ? (
@@ -139,7 +139,8 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-brand-black lg:hidden"
+            className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-[#000000] lg:hidden"
+            style={{ minHeight: "100dvh" }}
           >
             <div className="flex flex-col items-center gap-6">
               {NAV_LINKS.map((link, i) => (

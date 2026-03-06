@@ -10,27 +10,37 @@ interface CounterProps {
   value: string;
   label: string;
   className?: string;
+  valueClassName?: string;
+  labelClassName?: string;
 }
 
-export function Counter({ value, label, className = "" }: CounterProps) {
+export function Counter({
+  value,
+  label,
+  className = "",
+  valueClassName = "text-white",
+  labelClassName = "text-white/60",
+}: CounterProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [display, setDisplay] = useState("0");
+  const [displayNum, setDisplayNum] = useState("0");
+  const [prefix, setPrefix] = useState("");
+  const [suffix, setSuffix] = useState("");
   const hasAnimated = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Parse the numeric part and prefix/suffix
     const match = value.match(/^([^0-9]*)(\d+)(.*)$/);
     if (!match) {
-      setDisplay(value);
+      setDisplayNum(value);
       return;
     }
 
-    const prefix = match[1];
+    setPrefix(match[1]);
+    setSuffix(match[3]);
+
     const target = parseInt(match[2], 10);
-    const suffix = match[3];
 
     const trigger = ScrollTrigger.create({
       trigger: el,
@@ -45,7 +55,7 @@ export function Counter({ value, label, className = "" }: CounterProps) {
           duration: 2,
           ease: "power2.out",
           onUpdate: () => {
-            setDisplay(`${prefix}${Math.round(obj.val)}${suffix}`);
+            setDisplayNum(`${Math.round(obj.val)}`);
           },
         });
       },
@@ -58,10 +68,12 @@ export function Counter({ value, label, className = "" }: CounterProps) {
 
   return (
     <div ref={ref} className={`text-center ${className}`}>
-      <div className="text-4xl font-display font-bold sm:text-5xl lg:text-6xl">
-        {display}
+      <div className={`font-display font-bold text-4xl sm:text-5xl lg:text-6xl ${valueClassName}`}>
+        {prefix && <span className="text-[0.55em] opacity-60">{prefix}</span>}
+        {displayNum}
+        {suffix && <span className="text-[0.55em] opacity-60">{suffix}</span>}
       </div>
-      <div className="mt-2 text-sm text-white/60 sm:text-base">{label}</div>
+      <div className={`mt-2 text-sm sm:text-base ${labelClassName}`}>{label}</div>
     </div>
   );
 }

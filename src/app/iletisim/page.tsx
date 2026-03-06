@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -10,8 +10,9 @@ import { Input, Textarea } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { TextReveal } from "@/components/animations/TextReveal";
+import { useCursor } from "@/lib/CursorContext";
 import { COMPANY } from "@/lib/constants";
-import { Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Clock, Phone, CheckCircle } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Ad Soyad en az 2 karakter olmalıdır"),
@@ -27,6 +28,13 @@ type FormData = z.infer<typeof schema>;
 
 export default function IletisimPage() {
   const [submitted, setSubmitted] = useState(false);
+
+  const { setColor } = useCursor();
+
+  useEffect(() => {
+    setColor("#FF3B30");
+    return () => setColor("#FF3B30");
+  }, [setColor]);
 
   const {
     register,
@@ -130,9 +138,10 @@ export default function IletisimPage() {
                       </label>
                       <select
                         {...register("service")}
-                        className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white transition-all duration-300 focus:border-brand-coral focus:outline-none focus:ring-1 focus:ring-brand-coral/50"
+                        className="w-full rounded-lg border border-white/10 bg-[#0A0A0A] px-4 py-3 text-white transition-all duration-300 focus:border-brand-coral focus:outline-none focus:ring-1 focus:ring-brand-coral/50 [&>option]:bg-[#0A0A0A] [&>option]:text-white"
+                        defaultValue=""
                       >
-                        <option value="">Seçim yapınız</option>
+                        <option value="" disabled className="text-white/50">Seçim yapınız</option>
                         <option value="rpa">RPA</option>
                         <option value="bpmn">BPMN</option>
                         <option value="optimizasyon">Optimizasyon</option>
@@ -172,6 +181,18 @@ export default function IletisimPage() {
                       <div>
                         <p className="text-sm font-medium">Adres</p>
                         <p className="text-sm text-white/50">{COMPANY.address}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Phone className="mt-0.5 h-5 w-5 shrink-0 text-brand-coral" />
+                      <div>
+                        <p className="text-sm font-medium">Telefon</p>
+                        <a
+                          href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+                          className="text-sm text-white/50 transition-colors hover:text-white"
+                        >
+                          {COMPANY.phone}
+                        </a>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">

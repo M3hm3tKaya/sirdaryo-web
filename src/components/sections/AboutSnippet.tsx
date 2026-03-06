@@ -1,21 +1,27 @@
 "use client";
 
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { TextReveal } from "@/components/animations/TextReveal";
 import { Counter } from "@/components/animations/Counter";
+import { useCursor } from "@/lib/CursorContext";
 
 const metrics = [
-  { value: "12+", label: "Yıllık Deneyim" },
-  { value: "150+", label: "Tamamlanan Proje" },
-  { value: "50+", label: "Mutlu Müşteri" },
-  { value: "30+", label: "Uzman Kadro" },
+  { value: "12+", label: "Yıllık Deneyim", valueColor: "text-brand-coral", borderColor: "border-t-brand-coral" },
+  { value: "150+", label: "Tamamlanan Proje", valueColor: "text-brand-violet", borderColor: "border-t-brand-violet" },
+  { value: "50+", label: "Mutlu Müşteri", valueColor: "text-brand-cyan", borderColor: "border-t-brand-cyan" },
+  { value: "30+", label: "Uzman Kadro", valueColor: "text-brand-lime", borderColor: "border-t-brand-lime" },
 ];
 
 export function AboutSnippet() {
+  const { setColor } = useCursor();
+
   return (
-    <section className="bg-brand-off-white py-24 lg:py-32">
+    <section
+      className="bg-brand-off-white py-24 lg:py-32"
+      onMouseEnter={() => setColor("#84CC16")}
+    >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -39,20 +45,24 @@ export function AboutSnippet() {
               </p>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={0.4}>
-              <Button href="/hakkimizda" variant="secondary" className="mt-8">
+              <Link
+                href="/hakkimizda"
+                className="mt-8 inline-flex items-center justify-center rounded-full bg-brand-black px-8 py-3 font-medium text-white transition-all duration-300 hover:bg-brand-coral hover:shadow-[0_0_30px_rgba(255,59,48,0.3)]"
+              >
                 Daha Fazlası
-              </Button>
+              </Link>
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-6">
             {metrics.map((metric, i) => (
               <ScrollReveal key={metric.label} animation="scale" delay={i * 0.1}>
-                <div className="rounded-2xl border border-brand-black/5 bg-white p-6 text-center shadow-sm">
+                <div className={`rounded-2xl border border-brand-black/5 border-t-[3px] ${metric.borderColor} bg-white p-6 text-center shadow-sm`}>
                   <Counter
                     value={metric.value}
                     label={metric.label}
-                    className="[&>div:first-child]:text-brand-black [&>div:last-child]:text-brand-black/50"
+                    valueClassName={metric.valueColor}
+                    labelClassName="text-brand-black/50"
                   />
                 </div>
               </ScrollReveal>
