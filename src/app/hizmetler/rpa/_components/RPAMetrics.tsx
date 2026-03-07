@@ -12,7 +12,7 @@ const metrics = [
   { value: "%85", label: "Süreç Hızlanması", rotate: -3 },
   { value: "%99", label: "Doğruluk Oranı", rotate: 1.5 },
   { value: "7/24", label: "Kesintisiz Çalışma", rotate: -2 },
-  { value: "6", label: "Ay Ortalama ROI", rotate: 2.5 },
+  { value: "6 Ay", label: "Yatırım Geri Dönüşü", rotate: 2.5 },
 ];
 
 export function RPAMetrics() {
