@@ -19,26 +19,33 @@ export function RPAMetrics() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const mobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".metric-card").forEach((card, i) => {
-        const directions = [
-          { x: -80, y: 40 },
-          { x: 60, y: -30 },
-          { x: -50, y: -50 },
-          { x: 70, y: 30 },
-        ];
-        gsap.from(card, {
-          ...directions[i],
-          opacity: 0,
-          rotation: (i % 2 === 0 ? -15 : 15),
-          duration: 0.8,
-          ease: "back.out(1.4)",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        });
+        if (mobile) {
+          // Mobile: simple fade only
+          gsap.from(card, {
+            opacity: 0,
+            duration: 0.5,
+            delay: i * 0.1,
+            scrollTrigger: { trigger: card, start: "top 90%", toggleActions: "play none none none" },
+          });
+        } else {
+          const directions = [
+            { x: -80, y: 40 },
+            { x: 60, y: -30 },
+            { x: -50, y: -50 },
+            { x: 70, y: 30 },
+          ];
+          gsap.from(card, {
+            ...directions[i],
+            opacity: 0,
+            rotation: (i % 2 === 0 ? -15 : 15),
+            duration: 0.8,
+            ease: "back.out(1.4)",
+            scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" },
+          });
+        }
       });
     }, sectionRef);
     return () => ctx.revert();
@@ -47,7 +54,7 @@ export function RPAMetrics() {
   return (
     <section ref={sectionRef} className="relative z-10 py-24 lg:py-32">
       {/* Center glow */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[600px] rounded-full bg-[#8B5CF6]/10 blur-[150px]" />
+      <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[600px] rounded-full bg-[#8B5CF6]/10 blur-[150px]" />
 
       <Container className="relative">
         <h2 className="mb-16 text-center font-display text-3xl font-bold sm:text-4xl lg:text-5xl">

@@ -15,10 +15,30 @@ export function Hero() {
   const { setColor } = useCursor();
 
   useEffect(() => {
+    const mobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
+      const words = titleRef.current?.querySelectorAll(".word");
+
+      if (mobile) {
+        // Mobile: simple opacity fades, no transforms/blurs
+        if (words) {
+          gsap.set(words, { opacity: 0 });
+          gsap.to(words, { opacity: 1, duration: 0.5, stagger: 0.04 });
+        }
+        if (subtitleRef.current) {
+          gsap.set(subtitleRef.current, { opacity: 0 });
+          gsap.to(subtitleRef.current, { opacity: 1, duration: 0.4, delay: 0.2 });
+        }
+        if (ctaRef.current) {
+          gsap.set(ctaRef.current, { opacity: 0 });
+          gsap.to(ctaRef.current, { opacity: 1, duration: 0.4, delay: 0.3 });
+        }
+        return;
+      }
+
+      // Desktop: full animations
       const tl = gsap.timeline({ delay: 0.3 });
 
-      const words = titleRef.current?.querySelectorAll(".word");
       if (words) {
         gsap.set(words, { y: 80, opacity: 0, rotateX: 15 });
         tl.to(words, {
@@ -62,7 +82,7 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-black"
     >
       {/* Animated background glow orbs */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden hidden md:block">
         {/* Top right violet glow */}
         <div className="absolute -top-20 -right-20 h-[500px] w-[500px] rounded-full bg-brand-violet/15 blur-[150px] hero-glow-2" />
         {/* Bottom left coral glow */}

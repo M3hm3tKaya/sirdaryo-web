@@ -26,7 +26,7 @@ export function OptHero() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center pt-20">
-      <div className="absolute -bottom-20 -right-40 h-[500px] w-[500px] rounded-full bg-[#84CC16]/10 blur-[150px]" />
+      <div className="hidden md:block absolute -bottom-20 -right-40 h-[500px] w-[500px] rounded-full bg-[#84CC16]/10 blur-[150px]" />
       {/* Grid bg */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(#84CC16 1px, transparent 1px), linear-gradient(90deg, #84CC16 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
 

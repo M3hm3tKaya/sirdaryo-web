@@ -28,8 +28,15 @@ export function BPMNFlowChart() {
 
   useEffect(() => {
     if (!flowRef.current) return;
+    const mobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
-      // 1. Set initial hidden states BEFORE making SVG visible
+      if (mobile) {
+        // Mobile: show static flowchart, no complex animation
+        gsap.set(svgRef.current, { visibility: "visible" });
+        return;
+      }
+
+      // Desktop: full animation
       const nodeOrigins: [string, string][] = [
         [".fc-node-start", "60 140"],
         [".fc-node-t1", "260 140"],
@@ -46,54 +53,44 @@ export function BPMNFlowChart() {
       gsap.set([".fc-hayir-1", ".fc-hayir-2", ".fc-hayir-3"], { opacity: 0 });
       gsap.set([".fc-label-evet", ".fc-label-hayir"], { opacity: 0 });
 
-      // 2. Now reveal the SVG (children are individually hidden)
       gsap.set(svgRef.current, { visibility: "visible" });
 
-      // 3. Timeline
       const tl = gsap.timeline({
         scrollTrigger: { trigger: flowRef.current, start: "top 80%", once: true },
       });
 
-      // Node+arrow parallel, next group starts when arrow ends
-      const ad = 0.6;  // arrow draw duration
-      const ho = ad - 0.3; // arrowhead appears 0.3s before arrow ends
+      const ad = 0.6;
+      const ho = ad - 0.3;
 
-      // s1: Başla + Arrow1
       tl.addLabel("s1");
       tl.to(".fc-node-start", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s1");
       tl.fromTo(".fc-arrow-1", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s1");
       tl.to(".fc-head-1", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s1+=${ho}`);
 
-      // s2: Veri Toplama + Arrow2
       tl.addLabel("s2", `s1+=${ad}`);
       tl.to(".fc-node-t1", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s2");
       tl.fromTo(".fc-arrow-2", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s2");
       tl.to(".fc-head-2", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s2+=${ho}`);
 
-      // s3: Gateway + Evet label + Arrow evet
       tl.addLabel("s3", `s2+=${ad}`);
       tl.to(".fc-node-g1", { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, "s3");
       tl.to(".fc-label-evet", { opacity: 1, duration: 0.3 }, "s3");
       tl.fromTo(".fc-arrow-evet", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s3");
       tl.to(".fc-head-evet", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s3+=${ho}`);
 
-      // s4: İşleme + Arrow4
       tl.addLabel("s4", `s3+=${ad}`);
       tl.to(".fc-node-t2", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s4");
       tl.fromTo(".fc-arrow-4", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s4");
       tl.to(".fc-head-4", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s4+=${ho}`);
 
-      // s5: Raporlama + Arrow5
       tl.addLabel("s5", `s4+=${ad}`);
       tl.to(".fc-node-t3", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s5");
       tl.fromTo(".fc-arrow-5", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s5");
       tl.to(".fc-head-5", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s5+=${ho}`);
 
-      // s6: Bitir
       tl.addLabel("s6", `s5+=${ad}`);
       tl.to(".fc-node-end", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s6");
 
-      // s7: Hayır loop
       tl.to(".fc-hayir-1", { opacity: 1, duration: 0.3 }, "s6+=0.5");
       tl.to(".fc-hayir-2", { opacity: 1, duration: 0.4 }, "+=0.05");
       tl.to(".fc-hayir-3", { opacity: 1, duration: 0.3 }, "+=0.05");

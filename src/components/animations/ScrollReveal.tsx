@@ -37,13 +37,15 @@ export function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
-    const from = animations[animation];
+    // On mobile: simple opacity fade only (no transforms)
+    const mobile = window.innerWidth < 768;
+    const from = mobile ? { opacity: 0 } : animations[animation];
 
     gsap.set(el, from);
 
     const trigger = gsap.to(el, {
       ...Object.fromEntries(Object.keys(from).map((k) => [k, k === "opacity" ? 1 : k === "scale" ? 1 : 0])),
-      duration,
+      duration: mobile ? 0.5 : duration,
       delay,
       ease: "power3.out",
       scrollTrigger: {

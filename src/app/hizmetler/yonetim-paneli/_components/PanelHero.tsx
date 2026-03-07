@@ -26,7 +26,7 @@ export function PanelHero() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center pt-20">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[#F59E0B]/10 blur-[150px]" />
+      <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[#F59E0B]/10 blur-[150px]" />
 
       <Container className="relative z-10">
         <div className="mx-auto max-w-3xl text-center">

@@ -10,8 +10,19 @@ export function RPAHero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const mobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
-      // Intro animations
+      if (mobile) {
+        // Mobile: simple fade, no orbital rotation
+        gsap.from(".rpa-badge", { opacity: 0, duration: 0.4 });
+        gsap.from(".rpa-title .word", { opacity: 0, stagger: 0.04, duration: 0.5 });
+        gsap.from(".rpa-desc", { opacity: 0, duration: 0.4, delay: 0.2 });
+        gsap.from(".rpa-cta", { opacity: 0, duration: 0.4, delay: 0.3 });
+        gsap.from(".rpa-visual", { opacity: 0, duration: 0.5, delay: 0.3 });
+        return;
+      }
+
+      // Desktop: full animations + orbital rotations
       const tl = gsap.timeline({ delay: 0.2 });
       tl.from(".rpa-badge", { opacity: 0, y: 20, duration: 0.5 })
         .from(".rpa-title .word", { opacity: 0, y: 60, stagger: 0.06, duration: 0.7, ease: "power3.out" }, "-=0.2")
@@ -19,7 +30,6 @@ export function RPAHero() {
         .from(".rpa-cta", { opacity: 0, y: 20, duration: 0.5 }, "-=0.2")
         .from(".rpa-visual", { opacity: 0, scale: 0.9, duration: 0.8, ease: "power2.out" }, "-=0.5");
 
-      // Orbital rotations (GSAP svgOrigin handles transform-origin reliably)
       gsap.to(".orbit-inner", { rotation: 360, duration: 8, ease: "none", repeat: -1, svgOrigin: "200 200" });
       gsap.to(".orbit-middle", { rotation: -360, duration: 12, ease: "none", repeat: -1, svgOrigin: "200 200" });
       gsap.to(".orbit-outer", { rotation: 360, duration: 16, ease: "none", repeat: -1, svgOrigin: "200 200" });
@@ -32,7 +42,7 @@ export function RPAHero() {
   return (
     <section ref={sectionRef} className="relative z-10 min-h-screen flex items-center pt-20">
       {/* Top-right glow */}
-      <div className="absolute -top-20 -right-40 h-[500px] w-[500px] rounded-full bg-[#8B5CF6]/15 blur-[150px]" />
+      <div className="hidden md:block absolute -top-20 -right-40 h-[500px] w-[500px] rounded-full bg-[#8B5CF6]/15 blur-[150px]" />
 
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[55%_45%] lg:gap-16">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCursor } from "@/lib/CursorContext";
 
 export function CustomCursor() {
@@ -9,9 +9,14 @@ export function CustomCursor() {
   const pos = useRef({ x: -100, y: -100 });
   const target = useRef({ x: -100, y: -100 });
   const { color } = useCursor();
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    setEnabled(window.matchMedia("(pointer: fine)").matches);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
 
     const wrapper = wrapperRef.current;
     const inner = innerRef.current;
@@ -77,7 +82,9 @@ export function CustomCursor() {
       document.removeEventListener("mouseout", handleMouseOut);
       cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <div

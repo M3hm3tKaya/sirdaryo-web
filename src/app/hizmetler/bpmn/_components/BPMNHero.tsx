@@ -10,8 +10,19 @@ export function BPMNHero() {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
+    const mobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
-      // Set initial hidden states BEFORE making SVG visible
+      if (mobile) {
+        // Mobile: show everything static, no complex SVG animation
+        gsap.set(svgRef.current, { visibility: "visible" });
+        gsap.from(".bpmn-badge", { opacity: 0, duration: 0.4 });
+        gsap.from(".bpmn-title .word", { opacity: 0, stagger: 0.04, duration: 0.5 });
+        gsap.from(".bpmn-desc", { opacity: 0, duration: 0.4, delay: 0.2 });
+        gsap.from(".bpmn-cta", { opacity: 0, duration: 0.4, delay: 0.3 });
+        return;
+      }
+
+      // Desktop: full animation
       const heroNodes: [string, string][] = [
         [".hero-ns", "80 175"],
         [".hero-nt1", "270 175"],
@@ -26,34 +37,28 @@ export function BPMNHero() {
       gsap.set(".hero-fc-arrow", { opacity: 0 });
       gsap.set(".hero-fc-head", { opacity: 0, scale: 0 });
 
-      // Now reveal the SVG (children are individually hidden)
       gsap.set(svgRef.current, { visibility: "visible" });
 
       const tl = gsap.timeline({ delay: 0.2 });
 
-      // Text animations
       tl.from(".bpmn-badge", { opacity: 0, y: 20, duration: 0.5 })
         .from(".bpmn-title .word", { opacity: 0, y: 60, stagger: 0.06, duration: 0.7, ease: "power3.out" }, "-=0.2")
         .from(".bpmn-desc", { opacity: 0, y: 20, duration: 0.6 }, "-=0.3")
         .from(".bpmn-cta", { opacity: 0, y: 20, duration: 0.5 }, "-=0.2");
 
-      // Flowchart: node+arrow parallel, next group starts when arrow ends
-      const ad = 0.6;  // arrow draw duration
-      const ho = ad - 0.3; // arrowhead appears 0.3s before arrow ends
+      const ad = 0.6;
+      const ho = ad - 0.3;
 
-      // s1: Start node + Arrow1
       tl.addLabel("s1", "+=0.1");
       tl.to(".hero-ns", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s1");
       tl.fromTo(".hero-a1", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s1");
       tl.to(".hero-h1", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s1+=${ho}`);
 
-      // s2: Task1 + Arrow2
       tl.addLabel("s2", `s1+=${ad}`);
       tl.to(".hero-nt1", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s2");
       tl.fromTo(".hero-a2", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s2");
       tl.to(".hero-h2", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s2+=${ho}`);
 
-      // s3: Gateway + Branch arrows (both)
       tl.addLabel("s3", `s2+=${ad}`);
       tl.to(".hero-ngw", { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.7)" }, "s3");
       tl.fromTo(".hero-a-upper", { opacity: 1, strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: ad, ease: "none" }, "s3");
@@ -61,7 +66,6 @@ export function BPMNHero() {
       tl.to(".hero-hu", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s3+=${ho}`);
       tl.to(".hero-hl", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s3+=${ho}`);
 
-      // s4: Task2A/2B + Merge arrows (both)
       tl.addLabel("s4", `s3+=${ad}`);
       tl.to(".hero-n2a", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s4");
       tl.to(".hero-n2b", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s4");
@@ -70,7 +74,6 @@ export function BPMNHero() {
       tl.to(".hero-hmu", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s4+=${ho}`);
       tl.to(".hero-hml", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, `s4+=${ho}`);
 
-      // s5: End node
       tl.addLabel("s5", `s4+=${ad}`);
       tl.to(".hero-nend", { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, "s5");
     }, ref);
@@ -81,8 +84,8 @@ export function BPMNHero() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex flex-col items-center justify-center pt-20">
-      <div className="absolute -top-20 -left-40 h-[500px] w-[500px] rounded-full bg-[#06B6D4]/10 blur-[150px]" />
-      <div className="absolute -bottom-20 -right-40 h-[400px] w-[400px] rounded-full bg-[#06B6D4]/10 blur-[150px]" />
+      <div className="hidden md:block absolute -top-20 -left-40 h-[500px] w-[500px] rounded-full bg-[#06B6D4]/10 blur-[150px]" />
+      <div className="hidden md:block absolute -bottom-20 -right-40 h-[400px] w-[400px] rounded-full bg-[#06B6D4]/10 blur-[150px]" />
 
       <Container className="relative z-10 w-full">
         <div className="mx-auto max-w-3xl text-center">
