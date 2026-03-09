@@ -143,7 +143,7 @@ export default function IletisimPage() {
                       >
                         <option value="" disabled className="text-white/50">Seçim yapınız</option>
                         <option value="rpa">RPA</option>
-                        <option value="bpmn">BPMN</option>
+                        <option value="bpm">BPM</option>
                         <option value="optimizasyon">Optimizasyon</option>
                         <option value="yonetim-paneli">Yönetim Paneli</option>
                         <option value="ozel-yazilim">Özel Yazılım</option>

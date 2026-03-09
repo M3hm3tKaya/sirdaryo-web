@@ -85,7 +85,7 @@ export default function HakkimizdaPage() {
               <p className="text-lg leading-relaxed text-brand-black/60">
                 Sirdaryo, işletmelerin tekrarlayan süreçlerini otomatize etme,
                 iş akışlarını optimize etme ve veri odaklı kararlar almalarını
-                sağlama vizyonuyla kuruldu. RPA, BPMN, süreç optimizasyonu ve
+                sağlama vizyonuyla kuruldu. RPA, BPM, süreç optimizasyonu ve
                 özel yazılım alanlarındaki uzmanlığı ile Türkiye&apos;nin öncü
                 dijital dönüşüm şirketlerinden biri olmayı hedefliyoruz.
               </p>

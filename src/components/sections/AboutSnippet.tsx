@@ -33,7 +33,7 @@ export function AboutSnippet() {
             <ScrollReveal animation="fade-up" delay={0.2}>
               <p className="mt-6 text-lg leading-relaxed text-brand-black/60">
                 Sirdaryo olarak, işletmelerin dijital dönüşüm yolculuğunda güçlü
-                bir partner olmayı hedefliyoruz. RPA, BPMN, süreç optimizasyonu
+                bir partner olmayı hedefliyoruz. RPA, BPM, süreç optimizasyonu
                 ve özel yazılım çözümleri ile süreçlerinizi hızlandırır,
                 maliyetlerinizi düşürür ve rekabet gücünüzü artırırız.
               </p>

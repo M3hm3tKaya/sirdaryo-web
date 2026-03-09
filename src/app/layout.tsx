@@ -28,11 +28,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sirdaryo | RPA, BPMN & Yazılım Çözümleri",
+    default: "Sirdaryo | RPA, BPM & Yazılım Çözümleri",
     template: "%s | Sirdaryo",
   },
   description:
-    "Sirdaryo Danışmanlık ve Bilişim Hizmetleri - RPA, BPMN, Optimizasyon, Yönetim Paneli ve Özel Yazılım çözümleri ile işletmenizi dijitalleştirin.",
+    "Sirdaryo Danışmanlık ve Bilişim Hizmetleri - RPA, BPM, Optimizasyon, Yönetim Paneli ve Özel Yazılım çözümleri ile işletmenizi dijitalleştirin.",
   metadataBase: new URL("https://sirdaryo.com"),
   icons: {
     icon: "/sirdaryo-S.svg",

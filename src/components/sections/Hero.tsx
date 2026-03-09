@@ -111,7 +111,7 @@ export function Hero() {
             ref={subtitleRef}
             className="mx-auto mt-8 max-w-xl text-lg text-white/70 sm:text-xl"
           >
-            RPA, BPMN, optimizasyon ve özel yazılım çözümleri ile işletmenizi
+            RPA, BPM, optimizasyon ve özel yazılım çözümleri ile işletmenizi
             bir üst seviyeye taşıyın.
           </p>
 

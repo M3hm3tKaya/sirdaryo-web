@@ -7,7 +7,7 @@ import { PageCursorColor } from "@/components/animations/PageCursorColor";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Sirdaryo blog - Dijital dönüşüm, RPA, BPMN ve yazılım hakkında yazılar.",
+  description: "Sirdaryo blog - Dijital dönüşüm, RPA, BPM ve yazılım hakkında yazılar.",
 };
 
 export default function BlogPage() {
@@ -26,7 +26,7 @@ export default function BlogPage() {
             />
             <ScrollReveal animation="fade-up" delay={0.2}>
               <p className="mt-6 text-lg text-white/50">
-                Dijital dönüşüm, RPA, BPMN ve yazılım dünyasından güncel yazılar.
+                Dijital dönüşüm, RPA, BPM ve yazılım dünyasından güncel yazılar.
               </p>
             </ScrollReveal>
           </div>

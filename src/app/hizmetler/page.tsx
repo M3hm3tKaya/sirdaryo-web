@@ -12,7 +12,7 @@ import type { AccentColor } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Çözümler",
-  description: "RPA, BPMN, süreç optimizasyonu, yönetim paneli ve özel yazılım geliştirme çözümlerimizi keşfedin.",
+  description: "RPA, BPM, süreç optimizasyonu, yönetim paneli ve özel yazılım geliştirme çözümlerimizi keşfedin.",
 };
 
 const services = [
