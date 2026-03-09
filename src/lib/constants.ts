@@ -4,7 +4,7 @@ export const COMPANY = {
   address: "Barbaros Mh. Mustafa Pehlivan Sk. 1/2, 34662 Üsküdar/İstanbul",
   email: "bilgi@sirdaryo.com",
   phone: "+90 536 451 66 33",
-  workingHours: "Pazartesi–Cuma, 08:00–18:00",
+  workingHours: "Pazartesi–Cuma, 09:00–18:00",
   supportHours: "7/24 iletişim desteği",
   mapCoords: { lat: 41.0255, lng: 29.0155 },
 } as const;
