@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       { source: "/hizmetlerimiz/:path*", destination: "/hizmetler", permanent: true },
       { source: "/hakkimizda/ilkelerimiz", destination: "/hakkimizda", permanent: true },
       { source: "/urunlerimiz/:path*", destination: "/hizmetler", permanent: true },
+      { source: "/cozumler", destination: "/hizmetler", permanent: true },
+      { source: "/cozumlerimiz", destination: "/hizmetler", permanent: true },
     ];
   },
 };

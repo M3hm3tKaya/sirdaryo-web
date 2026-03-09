@@ -11,8 +11,8 @@ import { PageCursorColor } from "@/components/animations/PageCursorColor";
 import type { AccentColor } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Hizmetler",
-  description: "RPA, BPMN, süreç optimizasyonu, yönetim paneli ve özel yazılım geliştirme hizmetlerimizi keşfedin.",
+  title: "Çözümler",
+  description: "RPA, BPMN, süreç optimizasyonu, yönetim paneli ve özel yazılım geliştirme çözümlerimizi keşfedin.",
 };
 
 const services = [
@@ -37,10 +37,10 @@ export default function HizmetlerPage() {
       <section className="bg-brand-black pt-32 pb-16 lg:pt-40 lg:pb-24">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <Badge color="coral" className="mb-6">Hizmetlerimiz</Badge>
+            <Badge color="coral" className="mb-6">Çözümlerimiz</Badge>
             <TextReveal text="Dijital Dönüşüm Çözümlerimiz" as="h1" className="font-display text-4xl font-bold sm:text-5xl lg:text-6xl" />
             <ScrollReveal animation="fade-up" delay={0.2}>
-              <p className="mt-6 text-lg text-white/50">İşletmenizin ihtiyacına özel, uçtan uca dijital dönüşüm hizmetleri</p>
+              <p className="mt-6 text-lg text-white/50">İşletmenizin ihtiyacına özel, uçtan uca dijital dönüşüm çözümleri</p>
             </ScrollReveal>
           </div>
         </Container>

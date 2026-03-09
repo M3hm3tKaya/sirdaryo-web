@@ -20,7 +20,7 @@ interface NavLink {
 export const NAV_LINKS: NavLink[] = [
   { label: "Ana Sayfa", href: "/" },
   {
-    label: "Hizmetler",
+    label: "Çözümler",
     href: "/hizmetler",
     children: [
       { label: "RPA", href: "/hizmetler/rpa", color: "violet" },

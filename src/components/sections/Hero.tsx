@@ -120,7 +120,7 @@ export function Hero() {
               Ücretsiz Danışmanlık
             </Button>
             <Button href="/hizmetler" variant="ghost" size="lg" className="px-10 py-4 text-lg">
-              Hizmetlerimiz
+              Çözümlerimiz
             </Button>
           </div>
         </div>

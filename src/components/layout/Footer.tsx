@@ -65,7 +65,7 @@ export function Footer() {
 
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">
-              Hizmetler
+              Çözümler
             </h4>
             <ul className="space-y-2">
               {serviceLinks.map((link) => (
