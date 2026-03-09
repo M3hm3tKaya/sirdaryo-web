@@ -62,7 +62,7 @@ export function LowCodeHero() {
               <a
                 href="https://www.emakin.com"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="inline-flex items-center gap-2 rounded-full border border-[#F97316]/30 px-8 py-4 text-lg font-medium text-[#FB923C] transition-all duration-300 hover:bg-[#F97316]/10 hover:border-[#F97316]/60"
               >
                 emakin.com
