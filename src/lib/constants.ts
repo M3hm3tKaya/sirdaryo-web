@@ -9,7 +9,7 @@ export const COMPANY = {
   mapCoords: { lat: 41.0255, lng: 29.0155 },
 } as const;
 
-export type AccentColor = "coral" | "violet" | "lime" | "amber" | "cyan";
+export type AccentColor = "coral" | "violet" | "lime" | "amber" | "cyan" | "orange";
 
 interface NavLink {
   label: string;
@@ -28,6 +28,7 @@ export const NAV_LINKS: NavLink[] = [
       { label: "Optimizasyon", href: "/hizmetler/optimizasyon", color: "lime" },
       { label: "Yönetim Paneli", href: "/hizmetler/yonetim-paneli", color: "amber" },
       { label: "Özel Yazılım", href: "/hizmetler/ozel-yazilim", color: "coral" },
+      { label: "Low-Code BPM", href: "/hizmetler/low-code-bpm", color: "orange" },
     ],
   },
   { label: "Hakkımızda", href: "/hakkimizda" },
@@ -40,4 +41,5 @@ export const ACCENT_COLORS = {
   lime: { hex: "#84CC16", tw: "brand-lime" },
   amber: { hex: "#F59E0B", tw: "brand-amber" },
   cyan: { hex: "#06B6D4", tw: "brand-cyan" },
+  orange: { hex: "#F97316", tw: "brand-orange" },
 } as const;

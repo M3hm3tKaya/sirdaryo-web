@@ -15,6 +15,7 @@ const accentColorMap: Record<string, string> = {
   lime: "text-brand-lime",
   amber: "text-brand-amber",
   coral: "text-brand-coral",
+  orange: "text-[#F97316]",
 };
 
 export function Header() {
@@ -88,7 +89,9 @@ export function Header() {
                                     ? "bg-brand-lime"
                                     : child.color === "amber"
                                       ? "bg-brand-amber"
-                                      : "bg-brand-coral"
+                                      : child.color === "orange"
+                                        ? "bg-[#F97316]"
+                                        : "bg-brand-coral"
                             }`}
                           />
                           <span className="text-sm text-white/80 hover:text-white">

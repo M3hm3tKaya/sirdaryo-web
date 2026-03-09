@@ -19,6 +19,7 @@ import {
   Smartphone,
   Globe,
   Lock,
+  Blocks,
   type LucideIcon,
 } from "lucide-react";
 
@@ -43,6 +44,7 @@ const iconMap: Record<string, LucideIcon> = {
   Smartphone,
   Globe,
   Lock,
+  Blocks,
 };
 
 export function getIcon(name: string): LucideIcon {

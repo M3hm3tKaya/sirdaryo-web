@@ -21,13 +21,14 @@ const services = [
   { slug: "optimizasyon", title: "Optimizasyon", subtitle: "Süreç Optimizasyonu", iconName: "TrendingUp", accentColor: "lime" as AccentColor, description: "Performans analizi ve maliyet optimizasyonu ile verimliliği artırın." },
   { slug: "yonetim-paneli", title: "Yönetim Paneli", subtitle: "Dashboard & Admin Panel", iconName: "LayoutDashboard", accentColor: "amber" as AccentColor, description: "İşletmenizin tüm verilerini tek bir ekranda görün." },
   { slug: "ozel-yazilim", title: "Özel Yazılım", subtitle: "Özel Yazılım Geliştirme", iconName: "Code2", accentColor: "coral" as AccentColor, description: "İhtiyacınıza özel web, mobil ve masaüstü yazılım çözümleri." },
+  { slug: "low-code-bpm", title: "Low-Code BPM", subtitle: "Emakin Platformu", iconName: "Blocks", accentColor: "orange" as AccentColor, description: "Kod yazmadan iş süreçlerinizi dijitalleştirin ve otomatikleştirin." },
 ];
 
 const glowColors: Record<AccentColor, string> = {
-  violet: "rgba(139, 92, 246, 0.15)", cyan: "rgba(6, 182, 212, 0.15)", lime: "rgba(132, 204, 22, 0.15)", amber: "rgba(245, 158, 11, 0.15)", coral: "rgba(255, 59, 48, 0.15)",
+  violet: "rgba(139, 92, 246, 0.15)", cyan: "rgba(6, 182, 212, 0.15)", lime: "rgba(132, 204, 22, 0.15)", amber: "rgba(245, 158, 11, 0.15)", coral: "rgba(255, 59, 48, 0.15)", orange: "rgba(249, 115, 22, 0.15)",
 };
 const textColors: Record<AccentColor, string> = {
-  violet: "text-brand-violet", cyan: "text-brand-cyan", lime: "text-brand-lime", amber: "text-brand-amber", coral: "text-brand-coral",
+  violet: "text-brand-violet", cyan: "text-brand-cyan", lime: "text-brand-lime", amber: "text-brand-amber", coral: "text-brand-coral", orange: "text-[#F97316]",
 };
 
 export default function HizmetlerPage() {
