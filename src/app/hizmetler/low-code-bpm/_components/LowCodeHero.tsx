@@ -38,7 +38,7 @@ export function LowCodeHero() {
       <div className="hidden md:block absolute -bottom-20 -left-40 h-[400px] w-[400px] rounded-full bg-[#F97316]/8 blur-[120px]" />
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-12 lg:grid-cols-[55%_45%] lg:gap-16">
+        <div className="grid items-end gap-12 lg:grid-cols-[55%_45%] lg:gap-16">
           <div>
             <div className="lc-badge mb-6 inline-flex items-center rounded-full bg-[#F97316]/10 px-4 py-1.5 text-sm font-medium text-[#FB923C]">
               Low-Code BPM
@@ -62,29 +62,26 @@ export function LowCodeHero() {
             </div>
           </div>
 
-          <div className="lc-logo-hero flex items-center justify-center">
-            <div className="flex flex-col items-center gap-5">
-              <div className="relative rounded-3xl border border-[#F97316]/15 bg-[#1A130A] px-10 py-4 shadow-[0_0_80px_rgba(249,115,22,0.08)]">
-                <img
-                  src="/images/emakin-logo.png"
-                  alt="Emakin - Simplify Your Business"
-                  className="w-[280px] sm:w-[320px]"
-                  style={{ marginTop: "-40px", marginBottom: "-40px" }}
-                  loading="lazy"
-                />
-              </div>
-              <a
-                href="https://www.emakin.com"
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2 rounded-full border border-[#F97316]/30 px-8 py-4 text-lg font-medium text-[#FB923C] transition-all duration-300 hover:bg-[#F97316]/10 hover:border-[#F97316]/60"
-              >
-                emakin.com
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+          <div className="lc-logo-hero flex flex-col items-center gap-5">
+            <div className="rounded-3xl border border-[#F97316]/15 bg-[#1A130A] px-10 py-6 shadow-[0_0_80px_rgba(249,115,22,0.08)]">
+              <img
+                src="/images/emakin-logo.png"
+                alt="Emakin - Simplify Your Business"
+                className="w-[280px] sm:w-[320px]"
+                loading="lazy"
+              />
             </div>
+            <a
+              href="https://www.emakin.com"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 rounded-full border border-[#F97316]/30 px-8 py-4 text-lg font-medium text-[#FB923C] transition-all duration-300 hover:bg-[#F97316]/10 hover:border-[#F97316]/60"
+            >
+              emakin.com
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
         </div>
       </Container>
