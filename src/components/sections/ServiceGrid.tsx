@@ -11,11 +11,10 @@ import { useRef, type MouseEvent } from "react";
 
 const services = [
   { slug: "rpa", title: "RPA", subtitle: "Robotik Süreç Otomasyonu", iconName: "Bot", accentColor: "violet" },
-  { slug: "bpmn", title: "BPMN", subtitle: "İş Süreç Yönetimi", iconName: "GitBranch", accentColor: "cyan" },
+  { slug: "low-code-bpm", title: "Low-Code BPM", subtitle: "Emakin Platformu", iconName: "Blocks", accentColor: "orange" },
   { slug: "optimizasyon", title: "Optimizasyon", subtitle: "Süreç Optimizasyonu", iconName: "TrendingUp", accentColor: "lime" },
   { slug: "yonetim-paneli", title: "Yönetim Paneli", subtitle: "Dashboard & Admin Panel", iconName: "LayoutDashboard", accentColor: "amber" },
   { slug: "ozel-yazilim", title: "Özel Yazılım", subtitle: "Özel Yazılım Geliştirme", iconName: "Code2", accentColor: "coral" },
-  { slug: "low-code-bpm", title: "Low-Code BPM", subtitle: "Emakin Platformu", iconName: "Blocks", accentColor: "orange" },
 ];
 
 const accentHex: Record<string, string> = {
@@ -86,7 +85,14 @@ export function ServiceGrid() {
           <TextReveal text="Dijital Dönüşümün Her Adımında" as="h2" className="font-display text-3xl font-bold text-brand-black sm:text-4xl lg:text-[52px] lg:leading-tight" />
         </div>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => <ServiceCard key={s.slug} service={s} index={i} />)}
+          {services.slice(0, 3).map((s, i) => <ServiceCard key={s.slug} service={s} index={i} />)}
+        </div>
+        <div className="mt-6 flex justify-center gap-6">
+          {services.slice(3).map((s, i) => (
+            <div key={s.slug} className="w-full max-w-sm sm:w-1/2 lg:w-1/3">
+              <ServiceCard service={s} index={i + 3} />
+            </div>
+          ))}
         </div>
       </Container>
     </section>

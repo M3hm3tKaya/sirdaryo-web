@@ -17,11 +17,10 @@ export const metadata: Metadata = {
 
 const services = [
   { slug: "rpa", title: "RPA", subtitle: "Robotik Süreç Otomasyonu", iconName: "Bot", accentColor: "violet" as AccentColor, description: "Tekrarlayan iş süreçlerinizi akıllı robotlarla otomatize edin." },
-  { slug: "bpmn", title: "BPMN", subtitle: "İş Süreç Yönetimi", iconName: "GitBranch", accentColor: "cyan" as AccentColor, description: "İş süreçlerinizi modelleyin, analiz edin ve optimize edin." },
+  { slug: "low-code-bpm", title: "Low-Code BPM", subtitle: "Emakin Platformu", iconName: "Blocks", accentColor: "orange" as AccentColor, description: "Kod yazmadan iş süreçlerinizi dijitalleştirin ve otomatikleştirin." },
   { slug: "optimizasyon", title: "Optimizasyon", subtitle: "Süreç Optimizasyonu", iconName: "TrendingUp", accentColor: "lime" as AccentColor, description: "Performans analizi ve maliyet optimizasyonu ile verimliliği artırın." },
   { slug: "yonetim-paneli", title: "Yönetim Paneli", subtitle: "Dashboard & Admin Panel", iconName: "LayoutDashboard", accentColor: "amber" as AccentColor, description: "İşletmenizin tüm verilerini tek bir ekranda görün." },
   { slug: "ozel-yazilim", title: "Özel Yazılım", subtitle: "Özel Yazılım Geliştirme", iconName: "Code2", accentColor: "coral" as AccentColor, description: "İhtiyacınıza özel web, mobil ve masaüstü yazılım çözümleri." },
-  { slug: "low-code-bpm", title: "Low-Code BPM", subtitle: "Emakin Platformu", iconName: "Blocks", accentColor: "orange" as AccentColor, description: "Kod yazmadan iş süreçlerinizi dijitalleştirin ve otomatikleştirin." },
 ];
 
 const glowColors: Record<AccentColor, string> = {

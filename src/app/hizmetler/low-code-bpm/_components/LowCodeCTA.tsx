@@ -27,22 +27,9 @@ export function LowCodeCTA() {
             </p>
           </ScrollReveal>
           <ScrollReveal animation="scale" delay={0.3}>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link href="/iletisim" className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-lg font-semibold text-[#EA580C] transition-all duration-300 hover:bg-[#1A130A] hover:text-white hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
-                İletişime Geçin
-              </Link>
-              <a
-                href="https://www.emakin.com"
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-10 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:border-white/60"
-              >
-                emakin.com
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
+            <Link href="/iletisim" className="mt-8 inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-lg font-semibold text-[#EA580C] transition-all duration-300 hover:bg-[#1A130A] hover:text-white hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+              İletişime Geçin
+            </Link>
           </ScrollReveal>
         </div>
       </Container>

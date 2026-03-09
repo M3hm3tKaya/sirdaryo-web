@@ -9,7 +9,7 @@ import { Mail, MapPin, Clock, Phone } from "lucide-react";
 
 const serviceLinks = [
   { label: "RPA", href: "/hizmetler/rpa", hoverColor: "hover:text-brand-violet" },
-  { label: "BPMN", href: "/hizmetler/bpmn", hoverColor: "hover:text-brand-cyan" },
+  { label: "Low-Code BPM", href: "/hizmetler/low-code-bpm", hoverColor: "hover:text-[#F97316]" },
   { label: "Optimizasyon", href: "/hizmetler/optimizasyon", hoverColor: "hover:text-brand-lime" },
   { label: "Yönetim Paneli", href: "/hizmetler/yonetim-paneli", hoverColor: "hover:text-brand-amber" },
   { label: "Özel Yazılım", href: "/hizmetler/ozel-yazilim", hoverColor: "hover:text-brand-coral" },
