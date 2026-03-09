@@ -10,7 +10,7 @@ import { getIcon } from "@/lib/icons";
 import { useRef, type MouseEvent } from "react";
 
 const services = [
-  { slug: "rpa", title: "RPA", subtitle: "Robotik Süreç Otomasyonu", iconName: "Bot", accentColor: "violet" },
+  { slug: "rpa", title: "RPA ve Otomasyon", subtitle: "Robotik Süreç Otomasyonu", iconName: "Bot", accentColor: "violet" },
   { slug: "low-code-bpm", title: "Low-Code BPM", subtitle: "Emakin Platformu", iconName: "Blocks", accentColor: "orange" },
   { slug: "optimizasyon", title: "Optimizasyon", subtitle: "Süreç Optimizasyonu", iconName: "TrendingUp", accentColor: "lime" },
   { slug: "yonetim-paneli", title: "Yönetim Paneli", subtitle: "Dashboard & Admin Panel", iconName: "LayoutDashboard", accentColor: "amber" },

@@ -23,7 +23,7 @@ export const NAV_LINKS: NavLink[] = [
     label: "Çözümler",
     href: "/hizmetler",
     children: [
-      { label: "RPA", href: "/hizmetler/rpa", color: "violet" },
+      { label: "RPA ve Otomasyon", href: "/hizmetler/rpa", color: "violet" },
       { label: "Low-Code BPM", href: "/hizmetler/low-code-bpm", color: "orange" },
       { label: "Optimizasyon", href: "/hizmetler/optimizasyon", color: "lime" },
       { label: "Yönetim Paneli", href: "/hizmetler/yonetim-paneli", color: "amber" },
