@@ -45,7 +45,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
 
   return (
     <ScrollReveal animation="fade-up" delay={index * 0.1}>
-      <Link href={`/hizmetler/${service.slug}`} className="block h-full">
+      <Link href={`/cozumler/${service.slug}`} className="block h-full">
         <div
           ref={cardRef}
           data-cursor-card

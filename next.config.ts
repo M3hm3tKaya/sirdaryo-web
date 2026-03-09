@@ -6,12 +6,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/hizmetlerimiz", destination: "/hizmetler", permanent: true },
-      { source: "/hizmetlerimiz/:path*", destination: "/hizmetler", permanent: true },
+      { source: "/hizmetler", destination: "/cozumler", permanent: true },
+      { source: "/hizmetler/:path*", destination: "/cozumler/:path*", permanent: true },
+      { source: "/hizmetlerimiz", destination: "/cozumler", permanent: true },
+      { source: "/hizmetlerimiz/:path*", destination: "/cozumler", permanent: true },
       { source: "/hakkimizda/ilkelerimiz", destination: "/hakkimizda", permanent: true },
-      { source: "/urunlerimiz/:path*", destination: "/hizmetler", permanent: true },
-      { source: "/cozumler", destination: "/hizmetler", permanent: true },
-      { source: "/cozumlerimiz", destination: "/hizmetler", permanent: true },
+      { source: "/urunlerimiz/:path*", destination: "/cozumler", permanent: true },
+      { source: "/cozumlerimiz", destination: "/cozumler", permanent: true },
     ];
   },
 };

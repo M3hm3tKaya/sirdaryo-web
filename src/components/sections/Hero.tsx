@@ -119,7 +119,7 @@ export function Hero() {
             <Button href="/iletisim" size="lg" className="animate-glow-pulse px-10 py-4 text-lg">
               Ücretsiz Danışmanlık
             </Button>
-            <Button href="/hizmetler" variant="ghost" size="lg" className="px-10 py-4 text-lg">
+            <Button href="/cozumler" variant="ghost" size="lg" className="px-10 py-4 text-lg">
               Çözümlerimiz
             </Button>
           </div>

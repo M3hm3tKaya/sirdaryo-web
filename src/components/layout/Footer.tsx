@@ -8,11 +8,11 @@ import { COMPANY } from "@/lib/constants";
 import { Mail, MapPin, Clock, Phone } from "lucide-react";
 
 const serviceLinks = [
-  { label: "RPA ve Otomasyon", href: "/hizmetler/rpa", hoverColor: "hover:text-brand-violet" },
-  { label: "Low-Code BPM", href: "/hizmetler/low-code-bpm", hoverColor: "hover:text-[#F97316]" },
-  { label: "Optimizasyon", href: "/hizmetler/optimizasyon", hoverColor: "hover:text-brand-lime" },
-  { label: "Yönetim Paneli", href: "/hizmetler/yonetim-paneli", hoverColor: "hover:text-brand-amber" },
-  { label: "Özel Yazılım", href: "/hizmetler/ozel-yazilim", hoverColor: "hover:text-brand-coral" },
+  { label: "RPA ve Otomasyon", href: "/cozumler/rpa", hoverColor: "hover:text-brand-violet" },
+  { label: "Low-Code BPM", href: "/cozumler/low-code-bpm", hoverColor: "hover:text-[#F97316]" },
+  { label: "Optimizasyon", href: "/cozumler/optimizasyon", hoverColor: "hover:text-brand-lime" },
+  { label: "Yönetim Paneli", href: "/cozumler/yonetim-paneli", hoverColor: "hover:text-brand-amber" },
+  { label: "Özel Yazılım", href: "/cozumler/ozel-yazilim", hoverColor: "hover:text-brand-coral" },
 ];
 
 const companyLinks = [

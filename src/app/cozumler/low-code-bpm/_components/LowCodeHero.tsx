@@ -63,11 +63,11 @@ export function LowCodeHero() {
           </div>
 
           <div className="lc-logo-hero flex flex-col items-center gap-5">
-            <div className="rounded-3xl border border-[#F97316]/15 bg-[#1A130A] px-10 py-6 shadow-[0_0_80px_rgba(249,115,22,0.08)]">
+            <div>
               <img
                 src="/images/emakin-logo.png"
                 alt="Emakin - Simplify Your Business"
-                className="w-[280px] sm:w-[320px]"
+                className="w-[320px] sm:w-[400px] rounded-3xl"
                 loading="lazy"
               />
             </div>

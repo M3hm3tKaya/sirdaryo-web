@@ -52,7 +52,7 @@ export default function HizmetlerPage() {
               const Icon = getIcon(service.iconName);
               return (
                 <ScrollReveal key={service.slug} animation="fade-up" delay={i * 0.1}>
-                  <Link href={`/hizmetler/${service.slug}`} className="block h-full">
+                  <Link href={`/cozumler/${service.slug}`} className="block h-full">
                     <GlowCard glowColor={glowColors[service.accentColor]} className="h-full transition-transform duration-300 hover:scale-[1.02]">
                       <div className={`mb-4 inline-flex rounded-lg bg-white/5 p-3 ${textColors[service.accentColor]}`}>
                         <Icon className="h-7 w-7" />
